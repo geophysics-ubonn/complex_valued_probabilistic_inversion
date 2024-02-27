@@ -72,7 +72,8 @@ class Complex_Inversion_Manager:
         self.Rm = Rm
         self.Jc = None
         self.response = None
-        self.J_is_conj_coo = False
+        self.J_is_conj_coo = False # It is assumed that solve_forward_problem returns the jacobian in its standard complex form.
+                                   # If the jacobian is returned in conjugate coordinates, change this to True after creating the Complex_Inversion_Manager object.
 
         self.invVr = np.eye(self.D)
         self.invVi = np.eye(self.D)
