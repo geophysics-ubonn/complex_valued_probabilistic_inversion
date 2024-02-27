@@ -8,7 +8,7 @@ class ConjugateError(Exception):
 def check_conjugate(x):
     """
     Checks if the provided complex vector x fullfills the conjugate coordinate
-        representation, which means that x[:int(len(x))] == x[:int(len(x))].conj().
+        representation, which means that x[:int(len(x)/2)] == x[int(len(x)/2):].conj().
     If this is not fullfilled, the functions throws a ConjugateError.
     """
     if not np.allclose(x[:int(len(x) / 2)], x[int(len(x) / 2):].conj()):
