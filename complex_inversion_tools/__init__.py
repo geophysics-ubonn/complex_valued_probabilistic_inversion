@@ -136,9 +136,10 @@ class Complex_Inversion_Manager:
             ])
 
         B = self.Jc.conj().T @ self.Rd @ self.Jc + self.lam * self.Rm
-        Binv = np.linalg.inv(B)
+        # Binv = np.linalg.inv(B)
         b = self.Jc.conj().T @ self.Rd @ (self.d - f) - self.lam * self.Rm @ (m - self.mp)
-        update = Binv @ b
+        # update = Binv @ b
+        update = np.linalg.solve(B, b) # use solve instead of np.linalg.inv for better performance
 
         # check if minimum is reached
         norm = np.linalg.norm(update) / (2 * self.M)
