@@ -145,9 +145,7 @@ class Complex_Inversion_Manager:
         norm = np.linalg.norm(update) / (2 * self.M)
 
         if (not perform_line_search):
-            if (norm < self.threshold_norm):
-                return update, True
-            return update, False
+            return update, (norm < self.threshold_norm)
 
         # line search step length
         etas = np.array([0, 0.5, 1]) * self.eta
@@ -157,7 +155,6 @@ class Complex_Inversion_Manager:
                     + self.lam * (m - self.mp).conj().T @ self.Rm @ (m - self.mp) ).real
 
         for ieta, eta in enumerate(etas[1:], 1):
-
             f, _ = self.solve_forward_problem(m + eta * update)
             rmses[ieta] = 0.5 * ( (self.d - f).conj().T @ self.Rd @ (self.d - f)
                     + self.lam * (m - self.mp).conj().T @ self.Rm @ (m - self.mp) ).real
@@ -173,9 +170,7 @@ class Complex_Inversion_Manager:
 
         if not (self.eta > 0):
             self.eta = 1
-        if norm * self.eta < self.threshold_norm:
-            return update, True
-        return update, False
+        return update, (norm * self.eta < self.threshold_norm)
 
 
     def inversion(self, N_iterations=10, perform_line_search=True, ignore_cost_increase=False):
