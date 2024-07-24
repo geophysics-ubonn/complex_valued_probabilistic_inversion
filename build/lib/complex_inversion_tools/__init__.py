@@ -172,8 +172,6 @@ class Complex_Inversion_Manager:
 
         if not (self.eta > 0):
             self.eta = 1
-        if not (self.eta < 1):
-            self.eta = 1
         if norm * self.eta < self.threshold_norm:
             return update, True
         return update, False
