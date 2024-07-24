@@ -7,7 +7,7 @@ setup(
     url='https://geo.uni-bonn.de',
     author='Joost Hase',
     author_email='hase@geo.uni-bonn.de',
-    license='BSD 2-clause',
+    license='MIT',
     packages=['complex_inversion_tools'],
     install_requires=['numpy',
                       'scipy',
