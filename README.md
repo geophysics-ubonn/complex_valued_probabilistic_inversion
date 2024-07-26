@@ -21,7 +21,7 @@ While having been developed for complex resistivity imaging, the implementation 
 4. Set up the regularization operator according to Equation (12) in the paper.
 5. Define a function ```solve_forward_problem``` that takes a model in CC and returns the forward response in CC, aswell as the complex Jacobian matrix (by default not in CC).
 6. Initialize the ```Complex_Inversion_Manager``` object and provide all the above.
-7. If you want, overwrite the attributes  ```Complex_Inversion_Manager.invVr``` and ```Complex_Inversion_Manager.invVr``` with the inverse variances (1-D Vector) of the real and imaginary data parts. This allows for correct calculation and printing of the individual RMSE values.
+7. If you want, overwrite the attributes  ```Complex_Inversion_Manager.invVr``` and ```Complex_Inversion_Manager.invVi``` with the inverse variances (1-D Vector) of the real and imaginary data parts. This allows for correct calculation and printing of the individual RMSE values.
 8. Run the inversion by calling ```Complex_Inversion_Manager.inversion()```
 9. Get some ice cream and enjoy the result of your hard work ;)
 
