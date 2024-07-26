@@ -25,6 +25,9 @@ While having been developed for complex resistivity imaging, the implementation 
 8. Run the inversion by calling ```Complex_Inversion_Manager.inversion()```
 9. Get some ice cream and enjoy the result of your hard work ;)
 
+### Examplex
+One of the supplied examples demonstrates the application to complex resistivity imaging. We use pyGIMLi for the complex forward calculation, creating the sensitivities and setting up the regularization operator. You can download pyGIMLi at: https://pygimli.org
+
 ### Further information:
 
 Check out the complete paper:
